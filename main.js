@@ -27,8 +27,6 @@ addTaskBtnInModal.addEventListener('click', function() {
     document.querySelector('#date-input').value = '';
 
     displayTasks();
-
-    // You can also close the modal here and refresh your task list view
 });
 
 
@@ -46,7 +44,7 @@ taskInput.addEventListener('input', validateInputs);
 dateInput.addEventListener('input', validateInputs);
 
 function displayTasks() {
-    //Clear the list first.
+    //Clears the list first.
     taskList.innerHTML = '';
 
     // Loop through the tasks array and add each item to the UL

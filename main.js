@@ -47,10 +47,23 @@ function displayTasks() {
     //Clears the list first.
     taskList.innerHTML = '';
 
+    const currentDate = new Date();
+    currentDate.setHours(0,0,0,0); // Set tiem to midnight for date comparison
+
+
     // Loop through the tasks array and add each item to the UL
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.classList.add('list-group-item');
+
+        // Check if task is overdue and not completed
+        const taskDueDate = new Date(task.dueDate);
+        taskDueDate.setHours(0,0,0,0); // Consider date only, ignore time
+
+        if (taskDueDate < currentDate && !task.completed) {
+            li.style.backgroundColor = 'red';
+            li.style.color = 'white'; // Adjust text color for better contrast
+        }
 
         // If task is complete, strike through the text
         if (task.completed) {
@@ -60,7 +73,7 @@ function displayTasks() {
         // Create a complete button
         const completeButton = document.createElement('button');
         completeButton.textContent = 'Complete Task';
-        completeButton.classList.add('btn', 'btn-sm', 'btn-success', 'mr-2');
+        completeButton.classList.add('btn', 'btn-sm', 'btn-success', 'mr-2', 'ml-3');
         completeButton.addEventListener('click', () => toggleTaskCompletion(index));
 
         // Create a delete button

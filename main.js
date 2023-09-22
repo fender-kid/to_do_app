@@ -10,6 +10,12 @@ const taskInput = document.getElementById('task-input');
 const dateInput = document.getElementById('date-input');
 const addTaskBtnInModal = document.querySelector('#addTaskBtnInModal');
 const taskList = document.getElementById('taskList');
+const taskModal = document.getElementById('taskModal');
+
+// Prevent the toast from showing when the modal is shown
+taskModal.addEventListener('shown.bs.modal', function(e) {
+    e.stopPropagation();
+});
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -28,7 +34,6 @@ addTaskBtnInModal.addEventListener('click', function() {
 
     displayTasks();
 });
-
 
 function validateInputs() {
     //Check if both fields have values
@@ -92,7 +97,15 @@ function displayTasks() {
 
         // Append the entire list item to the task list
         taskList.appendChild(li);
+
     });
+}
+
+function editTask(index) {
+    taskInput.value = tasks[index].title;
+    dateInput.value = tasks[index].dueDate;
+
+    // Needs more code to work    
 }
 
 function deleteTask(index) {

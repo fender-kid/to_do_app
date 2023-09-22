@@ -5,23 +5,3 @@ body {
 h2 {
     color: white;
 }
-
-.toast {
-    background-color: #007bff;
-    color: rgb(7, 165, 44);
-    padding: 10px;
-    border-radius: 4px;
-    position: fixed; /* Make it fixed on the page */
-    bottom: 10px; 
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    visibility: hidden;
-    z-index: 1050; 
-}
-
-
-@keyframes fade-in-out {
-    0% { visibility: visible; opacity: 0.8; }
-    70% { visibility: visible; opacity: 0.8; }
-    100% { visibility: hidden; opacity: 0; }
-}

@@ -60,11 +60,6 @@ function displayTasks() {
         const taskDueDate = new Date(task.dueDate);
         taskDueDate.setHours(0,0,0,0); // Consider date only, ignore time
 
-        if (taskDueDate < currentDate && !task.completed) {
-            li.style.backgroundColor = 'red';
-            li.style.color = 'white'; // Adjust text color for better contrast
-        }
-
         // If task is complete, strike through the text
         if (task.completed) {
             li.style.textDecoration = 'line-through';
@@ -78,9 +73,15 @@ function displayTasks() {
 
         // Create a delete button
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete Task';
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
         deleteButton.classList.add('btn', 'btn-sm', 'btn-danger', 'ml-2');
         deleteButton.addEventListener('click', () => deleteTask(index));
+
+        if (taskDueDate < currentDate && !task.completed) {
+            li.style.backgroundColor = 'rgba(255,0,0,.5)';
+            li.style.color = 'white'; // Adjust text color for better contrast
+            // deleteButton.style.backgroundColor = 'orange';
+        }
 
         // Task text
         li.textContent = `${task.title} (Due: ${task.dueDate})`;

@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <div class="container mt-5">
@@ -36,7 +38,6 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- Your form goes here -->
           <form>
             <div class="form-group">
               <label for="task-input">Task:</label>
@@ -44,13 +45,11 @@
               <label for="date-input">Due Date:</label>
               <input type="date" class="form-control" id="date-input" placeholder="Enter due date">
             </div>
-            <!-- Add more input fields if necessary -->
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-success" id="addTaskBtnInModal" disabled>Add Task</button>
-          <!-- You can add the delete button here too if you want it inside the modal -->
         </div>
       </div>
     </div>

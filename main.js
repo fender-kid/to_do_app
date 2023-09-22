@@ -59,11 +59,11 @@ function displayTasks() {
             li.style.textDecoration = 'line-through';
         }
 
-        // Create a checkbox for task completion
-        const completeCheckbox = document.createElement('input');
-        completeCheckbox.type = 'checkbox';
-        completeCheckbox.checked = task.completed;
-        completeCheckbox.addEventListener('change', () => toggleTaskCompletion(index));
+        // Create a complete button
+        const completeButton = document.createElement('button');
+        completeButton.textContent = 'Complete Task';
+        completeButton.classList.add('btn', 'btn-sm', 'btn-success', 'mr-2');
+        completeButton.addEventListener('click', () => toggleTaskCompletion(index));
 
         // Create a delete button
         const deleteButton = document.createElement('button');
@@ -71,11 +71,15 @@ function displayTasks() {
         deleteButton.classList.add('btn', 'btn-sm', 'btn-danger', 'ml-2');
         deleteButton.addEventListener('click', () => deleteTask(index));
 
-             // Task text
-             li.textContent = `${task.title} (Due: ${task.dueDate})`;
-             li.appendChild(completeCheckbox);
-             li.appendChild(deleteButton);
-             taskList.appendChild(li);
+        // Task text
+        li.textContent = `${task.title} (Due: ${task.dueDate})`;
+
+        // Append the complete and delete buttons
+        li.appendChild(completeButton);
+        li.appendChild(deleteButton);
+
+        // Append the entire list item to the task list
+        taskList.appendChild(li);
     });
 }
 
